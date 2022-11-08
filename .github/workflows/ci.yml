@@ -12,6 +12,5 @@ jobs:
       packages: write
     steps:
       - name: build
-        if: startsWith( github.ref, 'refs/tags/v')
         run: |
           echo "build runs"
