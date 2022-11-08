@@ -17,6 +17,8 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           echo "build runs"
+          echo ${{github.ref}}
       - name: normal build
         run: |
           echo "normal runs"
+          echo ${{github.ref}}
