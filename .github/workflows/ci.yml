@@ -14,8 +14,9 @@ jobs:
       packages: write
     steps:
       - name: build
-        if: ${{startsWith(github.ref, 'refs/tags/v') && 
-        github.event.base_ref  == 'refs/heads/main'}}
+        if: |
+          ${{ startsWith(github.ref, 'refs/tags/v') 
+          && (github.event.base_ref  == 'refs/heads/main')}}
         run: |
           echo "build runs"
           echo '${{ github.ref }}'
