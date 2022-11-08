@@ -1,8 +1,6 @@
 on:
   pull_request:
   push:
-    tags:
-      - "v[0-9]+.[0-9]+.[0-9]+"
     branches:
       - main
 
@@ -14,7 +12,7 @@ jobs:
       packages: write
     steps:
       - name: build
-        if: github.ref == 'refs/heads/main'
+        if: startsWith(github.ref, 'refs/tags/v')
         run: |
           echo "build runs"
           echo ${{github.ref}}
