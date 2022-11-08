@@ -21,4 +21,4 @@ jobs:
       - name: normal build
         run: |
           echo "normal runs"
-          echo ${{github}}
+          echo ${{github.head_ref}}
