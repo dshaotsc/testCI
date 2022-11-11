@@ -13,6 +13,20 @@ jobs:
       contents: read
       packages: write
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: "https://npm.pkg.github.com"
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Json Lint
+        run: |
+          for filename in ./schemas/*.json; do
+            ./node_modules/.bin/jsonlint "$filename" -q || exit 1
+          done
       - name: build
         if: |
           startsWith(github.ref, 'refs/tags/v') 

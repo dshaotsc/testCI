@@ -1,0 +1,68 @@
+{
+  "description": "Schema for base data attached to the page view event",
+  "properties": {
+    "page_category": {
+      "description": "Type of the page",
+      "type": "string",
+      "examples": [
+        "pdp", "plp", "myaccount", "checkout"
+      ]
+    },
+    "content": {
+      "description": "Descriptive name of the page in english in the format: [maincategory]/[subcategory1]/[subcategory2]/[subcategory3]/[productid] Corresponding to emospro.content for econda",
+      "type": "string",
+      "examples": [
+        "women/trousers/cropped-trousers/123456",
+        "GB/Brands/Betty Barclay/Women/Trousers/649111",
+        "GB/Brands/Laura Biagiotti ROMA/Women/Dresses/164285"
+      ]
+    },
+    "content_lang": {
+      "description": "Like content but translated in current language",
+      "type": "string",
+      "examples": [
+        "AT/Damen/Kleider/100232",
+        "AT/Grosse Grössen/Damen/Pullover/832363"
+      ]
+    },
+    "cart_status": {
+      "description": "Tracks the information if the cart is a new, resumed (user has already a cart, when entring the webiste) or merged cart or no-cart as default value",
+      "type": "string",
+      "enum": [
+        "new",
+        "resumed",
+        "merged",
+        "no-cart"
+      ]
+    },
+    "layout-variant": {
+      "description": "Which layout is being displayed (not device type!)",
+      "type": "string",
+      "maxLength": 8,
+      "examples": [
+        "phone", "desktop", "tablet"
+      ]
+    },
+    "layout-orientation": {
+      "description": "Which screen orientation is being displayed. pm = portraitmode, lm = landscapemode",
+      "enum": [
+        "pm", "lm"
+      ]
+    },
+    "pwa": {
+      "description": "Tracks if users browser is in 'standalone'-mode, and therefore the PWA (progressive web app) is displayed",
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "page_category",
+    "content",
+    "content_lang",
+    "cart_status",
+    "layout-variant",
+    "layout-orientation",
+    "pwa"
+  ]
+}

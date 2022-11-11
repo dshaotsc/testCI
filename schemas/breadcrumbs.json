@@ -1,0 +1,14 @@
+{
+  "description": "Schema for a breadcrumbs context",
+  "properties": {
+    "breadcrumbs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": ["breadcrumbs"]
+}
