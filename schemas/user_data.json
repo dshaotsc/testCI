@@ -36,5 +36,8 @@
   },
   "additionalProperties": false,
   "type": "object",
-  "required": ["sessionId", "usergroup1"]
+  "required": [
+    "sessionId",
+    "usergroup1"
+  ]
 }

@@ -1,0 +1,16 @@
+{
+  "description": "Schema for the layer page view and click event",
+  "properties": {
+    "layer": {
+      "description": "Name of the layer that is clicked or viewed",
+      "type": "string",
+      "maxLength": 255,
+      "examples": ["cart-layer", "delivery-charge", "size-chart", "newsletter-layer"]
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "layer"
+  ]
+}

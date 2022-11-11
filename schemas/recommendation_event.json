@@ -1,0 +1,56 @@
+{
+  "description": "Schema for recommendation events",
+  "properties": {
+    "reco-placement": {
+      "description": "placement of cross sell element (pagecategory)",
+      "type": "string",
+      "maxLength": 32,
+      "examples": [
+        "pdp",
+        "plp",
+        "cart"
+      ]
+    },
+    "reco-placement-name": {
+      "description": "name of the cross sell element in English",
+      "type": "string",
+      "maxLength": 255,
+      "examples": [
+        "pdp-similar-products",
+        "pdp-outfit"
+      ]
+    },
+    "reco-widget": {
+      "description": "every widget has its own unique ID, which is linked to a set of rules from the Cross Sell. Multiple recommendation elements can be placed on a single page, and can be distinguished with the widgetID",
+      "type": "string",
+      "maxLength": 8,
+      "examples": [
+        "33"
+      ]
+    },
+    "reco-product-target": {
+      "description": "recommended product, that the user clicked on",
+      "type": "string",
+      "maxLength": 16,
+      "examples": [
+        "123455"
+      ]
+    },
+    "reco-product-source": {
+      "description": "reference product, that some Cross Sell rules use for the calculation",
+      "type": "string",
+      "maxLength": 16,
+      "examples": [
+        "123456"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "reco-placement",
+    "reco-placement-name",
+    "reco-widget",
+    "reco-product-target"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "description": "Schema for outfits",
+  "properties": {
+    "outfitid": {
+      "type": "string",
+      "maxLength": 64,
+      "description": "contains the outfit ID",
+      "examples": [
+        "OUTFIT_ART_650658"
+      ]
+    },
+    "outfit-product-count": {
+      "type": "integer",
+      "minimum": 2,
+      "description": "number of products in the outfit",
+      "examples": [
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "outfitid",
+    "outfit-product-count"
+  ]
+}

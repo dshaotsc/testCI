@@ -1,0 +1,29 @@
+{
+  "description": "Schema for newsletter registration data attached to the page view event",
+  "properties": {
+    "newsletter-registration-process-step": {
+      "description": "Within the different process steps, which step is the user in.",
+      "examples": [
+        "newsletter-sign-in-register",
+        "newsletter-sign-in-doi",
+        "newsletter-sign-in-add-profile"
+      ],
+      "type": "string",
+      "maxLength": 255
+    },
+    "newsletter-action": {
+      "description": "Is it a newsletter registration or a sign off. Only sent when successfully signed in or signed off",
+      "examples": [
+        "sign-in",
+        "sign-off"
+      ],
+      "type": "string",
+      "maxLength": 255
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "newsletter-registration-process-step"
+  ]
+}

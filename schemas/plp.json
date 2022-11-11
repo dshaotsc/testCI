@@ -1,0 +1,143 @@
+{
+  "description": "Schema for the details on the PLP",
+  "$defs": {
+    "listfilters-array": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "maxLength": 255,
+        "examples": [
+          "fabric",
+          "color",
+          "size",
+          "brand",
+          "price"
+        ]
+      }
+    },
+    "positiveInteger": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "properties": {
+    "listfilters-shown": {
+      "description": "Which list filters are shown on the plp (not every plp has the same filters shown)",
+      "$ref": "#/$defs/listfilters-array"
+    },
+    "listsort": {
+      "description": "By what is the current list sorted",
+      "examples": [
+        "most-popular",
+        "new",
+        "sale",
+        "price-ascending",
+        "price-descending",
+        "availability"
+      ],
+      "type": "string",
+      "maxLength": 32
+    },
+    "listsort-type": {
+      "description": "Did the user sort the list or is it a default sorting e.g. manually = sorting selected by user. automatically = sorting set by e.g. external link, or redirect. default = default sorting option e.g. “most popular”",
+      "enum": [
+        "manually",
+        "automatically",
+        "default"
+      ]
+    },
+    "listfilter-type": {
+      "description": "Did the user filter or is it a prefiltered page. manually = filtered by user. automatically = filtering set by e.g. external link or redirect",
+      "enum": [
+        "manually",
+        "automatically"
+      ]
+    },
+    "listfilters": {
+      "description": "Filters set automatically by e.g. external links or redirects…",
+      "$ref": "#/$defs/listfilters-array"
+    },
+    "listfilters-applied": {
+      "description": "Selected filter by visitor",
+      "$ref": "#/$defs/listfilters-array"
+    },
+    "listfilter-count": {
+      "description": "Which filters and how many elements of each filter (independently from automatically or manually settings) are used",
+      "type": "object",
+      "required": [
+        "fabric",
+        "color",
+        "size",
+        "brand",
+        "price"
+      ],
+      "properties": {
+        "fabric": {
+          "$ref": "#/$defs/positiveInteger"
+        },
+        "color": {
+          "$ref": "#/$defs/positiveInteger"
+        },
+        "size": {
+          "$ref": "#/$defs/positiveInteger"
+        },
+        "brand": {
+          "$ref": "#/$defs/positiveInteger"
+        },
+        "price": {
+          "$ref": "#/$defs/positiveInteger"
+        }
+      },
+      "additionalProperties": true
+    },
+    "listfilter-elements": {
+      "description": "Which filters are used and the elements selected for each filter (independently from automatically or manually settings)",
+      "examples": [
+        {
+          "elements": [
+            {
+              "color": "red"
+            },
+            {
+              "color": "blue"
+            },
+            {
+              "size": "400"
+            },
+            {
+              "brand": "brax"
+            }
+          ]
+        }
+      ],
+      "type": "object",
+      "properties": {
+        "elements": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "layout-grid": {
+      "description": "Which grid of the layout is being displayed (how many products are shown per row on the plp). nan = not a number",
+      "examples": [
+        "0",
+        "1",
+        "2",
+        "nan"
+      ],
+      "type": "string",
+      "maxLength": 32
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "listfilters-shown",
+    "listsort",
+    "listsort-type"
+  ]
+}

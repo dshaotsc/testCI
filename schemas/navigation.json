@@ -1,0 +1,21 @@
+{
+  "description":"Schema for a navigation event",
+  "properties":{
+    "element":{
+      "type":"string"
+    },
+    "pageCategory":{
+      "type":"string"
+    },
+    "target":{
+      "type":"string"
+    }
+  },
+  "additionalProperties":false,
+  "type":"object",
+  "required":[
+    "element",
+    "pageCategory",
+    "target"
+  ]
+}

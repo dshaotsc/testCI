@@ -1,0 +1,25 @@
+{
+  "description":"Schema for an cms_teaser_click event",
+  "properties":{
+    "name":{
+      "type":"string"
+    },
+    "content":{
+      "type":"string"
+    },
+    "placement":{
+      "type":"string"
+    },
+    "type":{
+      "type":"string"
+    }
+  },
+  "additionalProperties":false,
+  "type":"object",
+  "required":[
+    "name",
+    "content",
+    "placement",
+    "type"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+    "description": "Schema for login and registration event",
+    "properties": {
+      "authentication-status": {
+        "description": "Was the login successful or not: successful / failed",
+        "type": "string",
+        "maxLength": 32,
+        "enum": [
+            "successful",
+            "failed"
+        ]
+      },
+      "authentication-type": {
+        "description": "Type of authentication (register / login)",
+        "type": "string",
+        "maxLength": 32,
+        "enum": [
+            "register",
+            "login"
+        ]
+      },
+      "authentication-source": {
+        "description": "Source of registration function e.g. checkout registration, my account registration",
+        "type": "string",
+        "maxLength": 64,
+        "examples": ["checkout-registration", "my account-registration"]
+      },
+      "authentication-email-hash": {
+        "description": "The email hash of the used email address",
+        "type": "string",
+        "maxLength": 64
+      }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+      "authentication-status",
+      "authentication-type"
+    ]
+  }
+  

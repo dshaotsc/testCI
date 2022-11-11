@@ -1,0 +1,32 @@
+{
+  "description": "Schema for newsletter registration data attached to the click event",
+  "properties": {
+    "newsletter-registration-process-step": {
+      "description": "Within the different process steps, which step is the user in.",
+      "examples": [
+        "newsletter-sign-in-register",
+        "newsletter-sign-in-doi",
+        "newsletter-sign-in-add-profile"
+      ],
+      "type": "string",
+      "maxLength": 255
+    },
+    "newsletter-registration-type": {
+      "description": "Through which element did the user sign in. If possible this value should be passed through the different steps",
+      "examples": [
+        "checkout-address",
+        "confirm-address",
+        "newsletter-sign-in",
+        "newsletter-layer",
+        "catalogue-order"
+      ],
+      "type": "string",
+      "maxLength": 255
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "newsletter-registration-process-step"
+  ]
+}
