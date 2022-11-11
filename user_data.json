@@ -2,7 +2,7 @@
   "description": "Schema for base data attached to the page view event",
   "properties": {
     "cartId": {
-      "type": "string"
+      "type": "string
     },
     "sessionId": {
       "type": "string"
