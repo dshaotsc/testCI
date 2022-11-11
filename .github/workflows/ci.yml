@@ -25,7 +25,7 @@ jobs:
       - name: Run Json Lint
         run: |
           for filename in ./schemas/*.json; do
-            ./node_modules/.bin/jsonlint "$filename" || exit 1
+            ./node_modules/.bin/jsonlint "$filename" -q || exit 1
           done
       - name: build
         if: |
